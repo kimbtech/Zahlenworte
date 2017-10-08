@@ -4,6 +4,52 @@
 		<meta charset="utf-8">
 		<title>Zahlenworte</title>
 		
+		<style>
+			body,input,textarea,button,pre,code{
+				font-size:100%;
+			}
+			body,input,textarea,button{
+				font-family:Ubuntu, sans-serif;
+			}
+			input[readonly=readonly]{
+				background-color:#ddd;
+				border-radius:3px;
+			}
+			pre,code{
+				font-family:"Ubuntu Mono", monospace;
+			}
+			body{
+				background-color: #010101;
+				color: black;
+			}
+			h1,h2{
+				border-bottom:1px solid #5d7;
+			}
+			h1{
+				font-size:1.8em;
+				font-weight:bold;
+			}
+			h2{
+				font-size:1.3em;
+				font-type:italic;
+			}
+			a, a:hover, a:active, a:visited{
+				text-decoration:none;
+				color:gray;
+			}
+			
+			div#main{
+				margin:auto;
+				max-width: 1100px;
+				min-width: 300px;
+				background-color:white;
+				padding:10px;
+				border-radius:15px;
+				border:1px solid #5d7;
+				border-shadow:5px 5px 5px #ddd;
+			}
+		</style>
+		
 		<script src="libs/jquery.js" type="text/javascript"></script>
 		<!-- Sprachen -->
 		<script src="libs/russian.js" type="text/javascript"></script>
@@ -16,46 +62,53 @@
 		<script src="main.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<h1>Zahlenworte</h1>
-		<input type="checkbox" id="stopOnRepeat" value="true">
-			Auch bei sich wiederholenden Folgen als erfolgeich gefunden beenden.
-		<h2>Einzelne Zahl betrachten</h2>
-		<div id="einzelnInput">
-			<input type="number" id="einzelnZahl" placeholder="Zahl"/>
-			<select id="einzelnSprache">
-				<option value="">Bitte wählen</option>
-			</select>
-			<button id="einzelnStart">Los</button>
+		<div id="main">
+			<h1>Zahlenworte</h1>
+			<input type="checkbox" id="stopOnRepeat" value="true">
+				Auch bei sich wiederholenden Folgen als erfolgeich gefunden beenden.
+			<h2>Einzelne Zahl betrachten</h2>
+			<div id="einzelnInput">
+				<input type="number" id="einzelnZahl" placeholder="Zahl"/>
+				<select id="einzelnSprache">
+					<option value="">Bitte wählen</option>
+				</select>
+				<button id="einzelnStart">Los</button>
+			</div>
+			<div id="einzelnOutput">
+				Bitte Zahl eingeben und Sprache wählen, danach auf "Los".
+			</div>
+			
+			<h2>Mehrere Zahlen betrachten</h2>
+			<div id="mehrfachInput">
+				<input type="number" id="mehrfachVon" value="0" placeholder="Von" />
+				<input type="number" id="mehrfachBis" value="100" placeholder="Bis" />
+				<input type="number" id="mehrfachAnzahl" value="10" placeholder="Anzahl" />
+				<select id="mehrfachSprache">
+					<option value="">Bitte wählen</option>
+				</select>
+				<button id="mehrfachStart">Los</button>
+			</div>
+			<div id="mehrfachOutput">
+				Bitte Bereich für Zufallszahlen, Anzahl der Durchläufe angeben sowie Sprache wählen, danach auf "Los".
+			</div>
+			
+			<h2>Alle Zahlen betrachten</h2>
+			<div id="alleInput">
+				<input type="number" id="alleVon" value="0" placeholder="Von" />
+				<input type="number" id="alleBis" value="100" placeholder="Bis" />
+				<select id="alleSprache">
+					<option value="">Bitte wählen</option>
+				</select>
+				<button id="alleStart">Los</button>
+			</div>
+			<div id="alleOutput">
+				Bitte Bereich für Zahlen und Sprache wählen, danach auf "Los".
+			</div>
 		</div>
-		<div id="einzelnOutput">
-			Bitte Zahl eingeben und Sprache wählen, danach auf "Los".
-		</div>
-		
-		<h2>Mehrere Zahlen betrachten</h2>
-		<div id="mehrfachInput">
-			<input type="number" id="mehrfachVon" value="0" placeholder="Von" />
-			<input type="number" id="mehrfachBis" value="100" placeholder="Bis" />
-			<input type="number" id="mehrfachAnzahl" value="10" placeholder="Anzahl" />
-			<select id="mehrfachSprache">
-				<option value="">Bitte wählen</option>
-			</select>
-			<button id="mehrfachStart">Los</button>
-		</div>
-		<div id="mehrfachOutput">
-			Bitte Bereich für Zufallszahlen, Anzahl der Durchläufe angeben sowie Sprache wählen, danach auf "Los".
-		</div>
-		
-		<h2>Alle Zahlen betrachten</h2>
-		<div id="alleInput">
-			<input type="number" id="alleVon" value="0" placeholder="Von" />
-			<input type="number" id="alleBis" value="100" placeholder="Bis" />
-			<select id="alleSprache">
-				<option value="">Bitte wählen</option>
-			</select>
-			<button id="alleStart">Los</button>
-		</div>
-		<div id="alleOutput">
-			Bitte Bereich für Zahlen und Sprache wählen, danach auf "Los".
+		<div style="font-size:0.8em; color:white; text-align:center;">
+			Zahlenworte &copy; 2017 by KIMB-technologies<br />
+			<a href="https://github.com/kimbtech/Zahlenworte/" target="_blank">GitHub</a>
+			- MIT License
 		</div>
 	</body>
 </html>
