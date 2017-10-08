@@ -10,6 +10,9 @@ function transformDutch(num) {
 
 function transformFrenchDanishDutch( num, lang ){
 
+	// Based on https://github.com/jmosbech/spell-it
+	// license MIT
+
 	// http://en.wiktionary.org/wiki/Appendix:French_numbers
 	var france_ones = ['zéro', 'et-un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix', 'once', 'douce', 'treize', 'quatorze', 'quinze', 'seize'];
 	
@@ -27,6 +30,8 @@ function transformFrenchDanishDutch( num, lang ){
 	france_ones[94] = 'quatre-vingt-quatorze';
 	france_ones[95] = 'quatre-vingt-quinze';
 	france_ones[96] = 'quatre-vingt-seize';
+	
+	// for lang nl see https://onzetaal.nl/taaladvies/getallen-uitschrijven
 	
 	var langs = {
 		da: {

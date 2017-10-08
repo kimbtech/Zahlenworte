@@ -7,6 +7,11 @@ function  transformPolish( num ) {
 
 function  transformGermanPolish( num, lang ) {
 
+	// based on https://github.com/adrianheine/node-in-words
+	// Copyright 2013–2015 Adrian Heine.
+	// Licensed under the Apache License, Version 2.0.
+	//	See (http://www.apache.org/licenses/LICENSE-2.0).
+
 	function getUtils() {
 		var exports = {};
 		

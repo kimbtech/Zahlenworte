@@ -1,7 +1,7 @@
 function transformEnglish( num ){
 	
 	/*!
-	 * Number-To-Words util
+	 * Number-To-Words
 	 * @version v1.2.3
 	 * @link https://github.com/marlun78/number-to-words
 	 * @author Martin Eneqvist (https://github.com/marlun78)
