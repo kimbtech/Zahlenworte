@@ -112,10 +112,10 @@ $( function () {
 			//rechnen und Ausgabe (Tabelle) mittels Callback
 			var log = '<table><tr><th>Zahl</th><th>Wort</th><th>Wortlänge</th></tr>';
 			var erg = testNumber( number, lang, function (val) {
-				log += '<tr><td>'+ val.number +'</td><td>'+ val.name +'</td><td>'+ val.length +'</td></tr>';
+				log += '<tr><td align="right">'+ val.number +'</td><td>'+ val.name +'</td><td align="right">'+ val.length +'</td></tr>';
 			});
 			if( erg !== false && erg[3] === false ){
-				log += '<tr><td>&rarr;</td><td>'+ erg[1] +'</td><td>'+ erg[0] +'</td></tr>';
+				log += '<tr><td>&rarr;</td><td>'+ erg[1] +'</td><td align="right">'+ erg[0] +'</td></tr>';
 			}
 			else if( erg !== false && stopOnRepeat && erg[3] !== false ){
 				log += '<tr><td>&rarr;</td><td>'+ erg[3] +'</td><td><b>Endlosfolge</b></td></tr>';
@@ -151,10 +151,10 @@ $( function () {
 				number = randomInt( von, bis );
 				erg = testNumber( number, lang);
 				if( erg === false ){
-					log += '<tr><td>'+ number +'</td><td>-</td><td>-</td><td>-</td></tr>';
+					log += '<tr><td align="right">'+ number +'</td><td>-</td><td>-</td><td>-</td></tr>';
 				}
 				else {
-					log += '<tr><td>'+ number +'</td><td>'+ erg[0] +'</td><td>'+ erg[1] +'</td><td>'+ erg[2] + ( stopOnRepeat && erg[3] !== false ? ' <b>Endlosfolge</b>' : '' ) +'</td></tr>';
+					log += '<tr><td align="right">'+ number +'</td><td>&nbsp;&nbsp;&nbsp;&nbsp; '+ erg[0] +'</td><td>'+ erg[1] +'</td><td align="right">'+ erg[2] + ( stopOnRepeat && erg[3] !== false ? ' <b>Endlosfolge</b>' : '' ) +'</td></tr>';
 				} 
 			}
 			
@@ -184,11 +184,11 @@ $( function () {
 			for (var number = von; number <= bis; number++) {
 				erg = testNumber( number, lang);
 				if( erg === false ){
-					log += '<tr><td>'+ number +'</td><td>-</td><td>-</td><td>-</td></tr>';
+					log += '<tr><td align="right">'+ number +'</td><td>-</td><td>-</td><td>-</td></tr>';
 					error = true;
 				}
 				else {
-					log += '<tr><td>'+ number +'</td><td>'+ erg[0] +'</td><td>'+ erg[1] +'</td><td>'+ erg[2] + ( stopOnRepeat && erg[3] !== false ? ' <b>Endlosfolge</b>' : '' ) +'</td></tr>';
+					log += '<tr><td align="right">'+ number +'</td><td>&nbsp;&nbsp;&nbsp;&nbsp; '+ erg[0] +'</td><td>'+ erg[1] +'</td><td align="right">'+ erg[2] + ( stopOnRepeat && erg[3] !== false ? ' <b>Endlosfolge</b>' : '' ) +'</td></tr>';
 				} 
 			}
 			log += '</table>';
