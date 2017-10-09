@@ -38,7 +38,7 @@ function testNumber( num, lang, ausgabe ) {
 		//rekursiv
 		word = toWord( num );
 		if( word.length != numLen ){
-			return word + ',' + generateFolge( word.length, numLen );
+			return word + ', ' + generateFolge( word.length, numLen );
 		}
 		else{
 			return word;
