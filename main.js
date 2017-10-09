@@ -84,7 +84,7 @@ function testNumber( num, lang, ausgabe ) {
 $( function () {
 	//StopOnRepeat Checkbox Button
 	$( "input#stopOnRepeat" ).click( function () {
-		stopOnRepeat = !stopOnRepeat;
+		stopOnRepeat = $( this )[0].checked;
 	});
 	
 	//Sprachen wählbar
