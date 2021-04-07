@@ -14,7 +14,16 @@ var langs = {
 	"Dänisch" : transformDanish,
 	"Niederländisch" : transformDutch,
 	"Polnisch" : transformPolish,
-	"Russisch" : transformRussian
+	"Russisch" : transformRussian,
+	"Portugiesisch" : transformPortuguese,
+	"Spanisch" : transformSpanish,
+	"Esperanto" : transformEsperanto,
+	"Vietnamesisch" : transformVietnamese,
+	"Arabisch" : transformArabic,
+	"Aserbaidschanisch" : transformAzerbaijan,
+	"Türkisch" : transformTurkish,
+	"Ukrainisch" : transformUkrainian,
+	"Indonesisch" : transformIndonesian,
 };
 //	Stoppen wenn Wiederholungskette gefunden, statt wenn immer die gleiche Zahl/ Länge
 var stopOnRepeat = false;
