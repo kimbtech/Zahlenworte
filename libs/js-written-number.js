@@ -1,30 +1,7 @@
-function transformPortuguese( num ) {
-	return writtenNumber( num, {lang: 'pt'} );
+function do_writtenNumber(n, l) {
+	return writtenNumber( n, {lang: l} );
 }
-function transformSpanish( num ) {
-	return writtenNumber( num, {lang: 'es'} );
-}
-function transformEsperanto( num ) {
-	return writtenNumber( num, {lang: 'eo'} );
-}
-function transformVietnamese( num ) {
-	return writtenNumber( num, {lang: 'vi'} );
-}
-function transformArabic( num ) {
-	return writtenNumber( num, {lang: 'ar'} );
-}
-function transformAzerbaijan( num ) {
-	return writtenNumber( num, {lang: 'az'} );
-}
-function transformTurkish( num ) {
-	return writtenNumber( num, {lang: 'tr'} );
-}
-function transformUkrainian( num ) {
-	return writtenNumber( num, {lang: 'uk'} );
-}
-function transformIndonesian( num ) {
-	return writtenNumber( num, {lang: 'id'} );
-}
+
 
 /**
  * https://github.com/yamadapc/js-written-number

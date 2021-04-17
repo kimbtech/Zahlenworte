@@ -8,25 +8,120 @@ function randomInt(min, max){
 //	Sprachen => Funktionen
 //		je ein Parameter Zahl und Wort als Rückgabe
 var langs = {
-	"Deutsch" : transformGerman,
-	"Englisch" : transformEnglish,
-	"Französisch" : transformFrench,
-	"Dänisch" : transformDanish,
-	"Niederländisch" : transformDutch,
-	"Polnisch" : transformPolish,
-	"Russisch" : transformRussian,
-	"Portugiesisch" : transformPortuguese,
-	"Spanisch" : transformSpanish,
-	"Esperanto" : transformEsperanto,
-	"Vietnamesisch" : transformVietnamese,
-	"Arabisch" : transformArabic,
-	"Aserbaidschanisch" : transformAzerbaijan,
-	"Türkisch" : transformTurkish,
-	"Ukrainisch" : transformUkrainian,
-	"Indonesisch" : transformIndonesian,
+	"Arabisch" : {
+		'n2words' : 'ar',
+		'writtenNumber' : 'ar'
+	},
+	"Aserbaidschanisch" : {
+		'writtenNumber' : 'az'
+	},
+	"Chinesisch" : {
+		'n2words' : 'zh'
+	},
+	"Dänisch" : {
+		'n2words' : 'dk',
+	},
+	"Deutsch" : {
+		'n2words' : 'de'
+	},
+	"Englisch" : {
+		'n2words' : 'en',
+		'writtenNumber' : 'en'
+	},
+	"Esperanto" : {
+		'writtenNumber' : 'eo'
+	},
+	"Farsi" : {
+		'n2words' : 'fa'
+	},
+	"Französisch" : {
+		'n2words' : 'fr',
+		'writtenNumber' : 'fr'
+	},
+	"Hebräisch" :  {
+		'n2words' : 'he'
+	},
+	"Indonesisch" : {
+		'writtenNumber' : 'id'
+	},
+	"Italienisch" : {
+		'n2words' : 'it',
+	},
+	"Koreanisch" : {
+		'n2words' : 'ko',
+	},
+	"Lettisch" : {
+		'n2words' : 'lv',
+	},
+	"Litauisch" : {
+		'n2words' : 'lt',
+	},
+	"Niederländisch" : {
+		'n2words' : 'nl',
+	},
+	"Norwegisch" : {
+		'n2words' : 'no',
+	},
+	"Polnisch" : {
+		'n2words' : 'pl',
+	},
+	"Portugiesisch" : {
+		'n2words' : 'pt',
+		'writtenNumber' : 'pt'
+	},
+	"Russisch" : {
+		'n2words' : 'ru',
+		'writtenNumber' : 'ru'
+	},
+	"Serbisch" : {
+		'n2words' : 'sr'
+	},
+	"Spanisch" : {
+		'n2words' : 'es',
+		'writtenNumber' : 'es'
+	},
+	"Tschechisch" : {
+		'n2words' : 'cz'
+	},
+	"Türkisch" : {
+		'n2words' : 'tr',
+		'writtenNumber' : 'tr'
+	},
+	"Ukrainisch" : {
+		'n2words' : 'uk',
+		'writtenNumber' : 'uk'
+	},
+	"Ungarisch" :  {
+		'n2words' : 'hu'
+	},
+	"Vietnamesisch" : {
+		'writtenNumber' : 'vi'
+	}
 };
 //	Stoppen wenn Wiederholungskette gefunden, statt wenn immer die gleiche Zahl/ Länge
 var stopOnRepeat = false;
+
+// Test the libraries
+function check_langs(lang, end) {
+	end = end || 30;
+	lang = lang || true;
+	Object.keys(langs).forEach( (name) => {
+		if( lang === name || lang === true ){
+			console.log("==>", name)
+			for(var i = 1; i < end; i++){
+				wN = "";
+				n2W = "";
+				if ( langs[name].hasOwnProperty('writtenNumber') ) {
+					wN = do_writtenNumber(i, langs[name]['writtenNumber']);
+				}
+				if ( langs[name].hasOwnProperty('n2words') ) {
+					n2W = do_n2words(i, langs[name]['n2words']);
+				}
+				console.log(i, wN, n2W)
+			}
+		}
+	})
+}
 
 /**
  * Test für eine Zahl durchführen (maximal 1.000 Versuche)
@@ -55,7 +150,13 @@ function testNumber( num, lang, ausgabe ) {
 	}
 	
 	//Sprache mittels Funktion wählen
-	var toWord = langs[lang];
+	if( langs[lang].hasOwnProperty('writtenNumber') ){
+		var toWord = (n) => { return do_writtenNumber(n, langs[lang]['writtenNumber']) };
+	}
+	else {
+		var toWord = (n) => { return do_n2words(n, langs[lang]['n2words']) };
+	}
+	
 	// fuer Schleife
 	var word, numLenBef = null, numLen, numLenS = [];
 	//maximal 1000 Versuche
